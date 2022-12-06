@@ -36,10 +36,8 @@ const HomeScreen = () => {
                 setFeaturedCategories(data);
             });
     }, []);
-    console.log(featuredCategories);
-
-
-
+    /*console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    console.log(featuredCategories);*/
 
     return (
         <SafeAreaView className="bg-white pt-5 " style={{ marginTop: StatusBar.currentHeight }}>
@@ -51,7 +49,7 @@ const HomeScreen = () => {
                     source={{
                         uri: "https://links.papareact.com/wru",
                     }}
-                    className="h-7 w-7 bg-gray-300 p-4 rounded-full"
+                    className="h-10 w-10 bg-gray-300 p-4 rounded-full"
                 />
 
                 <View className="flex-1" >
@@ -65,6 +63,7 @@ const HomeScreen = () => {
                 </View>
                 <UserIcon size={35} color="#ff0051" />
             </View>
+
             {/*Search*/}
             <View className="flex-row items-center space-x-2 pb-2 mx-4 px-2" >
                 <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3" >
@@ -86,15 +85,15 @@ const HomeScreen = () => {
             >
                 {/* {categorias} */}
                 <Categories />
-                {/* {Reatured rows} */}
 
+                {/* {Reatured rows} */} 
                 {featuredCategories?.map((category) => (
                     <FeaturedRows
                         key={category._id}
                         id={category._id}
                         title={category.name}
                         description={category.short_description}
-
+                        restaurantsName={category.restaurants}
                     />
                 ))
                 }

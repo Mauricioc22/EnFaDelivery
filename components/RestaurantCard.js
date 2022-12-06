@@ -2,40 +2,66 @@ import { View, Text, Touchable, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import { StarIcon } from 'react-native-heroicons/outline';
 import { MapPinIcon } from 'react-native-heroicons/outline';
+import { urlFor } from '../sanity';
+import { useNavigation } from '@react-navigation/native';
 
 const RestaurantCard = ({
     id,
     imgUrl,
     title,
     rating,
-    genre,
     address,
+    type,
     short_description,
     dishes,
-    long,
-    lat,
 }) => {
+    let add = address.split(',',2);
+
+    const navigation = useNavigation();
+
     return (
-        <TouchableOpacity className="bg-white mr-3 shadow">
+        <TouchableOpacity 
+        onPress={() => {
+            navigation.navigate('Restaurant', {
+                id,
+                imgUrl,
+                title,
+                rating,
+                address,
+                type,
+                short_description,
+                dishes,
+            });
+        }}
+        
+        className="bg-white mr-3 shadow">
             <Image
                 source={{
-                    uri: imgUrl,
+                    uri: urlFor(imgUrl).url(),
                 }}
-                className='h-36 w-66 rounded-sm'
+                className='h-36 w-80 rounded-sm'
             />
             <View className="px-3 pb-4">
                 <Text className='font-bold text-lg pt-2'>{title}</Text>
                 <View className="flex-row items-center space-x-1">
                     <StarIcon color="blue" opacity={0.5} size={22} />
                     <Text className="text-xs text-gray-500">
-                        <Text className="text-blue-500">{rating}</Text> . {genre}
+                        <Text className="text-blue-500">{rating}</Text> . {type}
                     </Text>
                 </View>
 
                 <View className="flex-row items-center space-x-1">
                     <MapPinIcon color="gray" opacity={0.4} size={22} />
                     <Text className="text-xs text-gray-500">
-                        Cercano . {address}
+                        Cercano
+                    </Text>
+                </View>
+                <View className="flex-column items-center space-x-1">
+                    <Text className="text-xs text-gray-500">
+                        {add[0]}
+                    </Text>
+                    <Text className="text-xs text-gray-500">
+                        {add[1]}
                     </Text>
                 </View>
             </View>
