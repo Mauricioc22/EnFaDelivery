@@ -36,8 +36,6 @@ const HomeScreen = () => {
                 setFeaturedCategories(data);
             });
     }, []);
-    /*console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    console.log(featuredCategories);*/
 
     return (
         <SafeAreaView className="bg-white pt-5 " style={{ marginTop: StatusBar.currentHeight }}>
