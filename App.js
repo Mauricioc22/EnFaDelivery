@@ -10,6 +10,8 @@ import BasketScreen from './screens/BasketScreen';
 import PreparingOrderScreen from './screens/PreparingOrderScreen';
 import DeliveryScreen from './screens/DeliveryScreen';
 import LoginScreen from './screens/LoginScreen';
+import UserScreen from './screens/UserScreen';
+
 
 import { Provider } from 'react-redux';
 import { store } from './store';
@@ -29,6 +31,8 @@ export default function App() {
             options={{ headerShown: false}} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+            <Stack.Screen name="User" component={UserScreen} />
+            
             <Stack.Screen 
               name="Basket" 
               component={BasketScreen}

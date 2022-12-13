@@ -1,5 +1,5 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { View, Text, Image, SafeAreaView, StatusBar, TextInput, ScrollView } from 'react-native';
+import { View, Text, Image, SafeAreaView, StatusBar, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -17,6 +17,8 @@ import category from '../sanity/schemas/category';
 const HomeScreen = () => {
     const navigation = useNavigation();
     const [featuredCategories, setFeaturedCategories] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -34,8 +36,10 @@ const HomeScreen = () => {
         `
             ).then(data => {
                 setFeaturedCategories(data);
+                //console.log(data);
             });
     }, []);
+    
 
     return (
         <SafeAreaView className="bg-white pt-5 " style={{ marginTop: StatusBar.currentHeight }}>
@@ -45,7 +49,7 @@ const HomeScreen = () => {
                 {/* flex-row items-center space-x-2 pb-2 mx-4 */}
                 <Image
                     source={{
-                        uri: "https://links.papareact.com/wru",
+                        uri: "https://www.maucastillo.com/proyectoMau/logo.jpeg",
                     }}
                     className="h-10 w-10 bg-gray-300 p-4 rounded-full"
                 />
@@ -56,17 +60,24 @@ const HomeScreen = () => {
                     </Text>
                     <Text className="font-bold text-xl">
                         Localización actual
-                        <ChevronDownIcon size={20} color="#ff0051" />
+                        {/* <ChevronDownIcon size={20} color="#ff0051" /> */}
                     </Text>
                 </View>
-                <UserIcon size={35} color="#ff0051" />
+                <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('User');
+                }}
+                >
+                    <UserIcon size={35} color="#ff0051" />
+                </TouchableOpacity>
             </View>
+
 
             {/*Search*/}
             <View className="flex-row items-center space-x-2 pb-2 mx-4 px-2" >
                 <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3" >
                     <MagnifyingGlassIcon color="#4B4B4B" size={20} />
-                    <TextInput placeholder="Restaurantes o platillos"
+                    <TextInput onChangeText={text=> {}} placeholder="Restaurantes o platillos"
                         keyboardType='default'
                     />
 
@@ -84,7 +95,7 @@ const HomeScreen = () => {
                 {/* {categorias} */}
                 <Categories />
 
-                {/* {Reatured rows} */} 
+                {/* {Reatured rows} */}
                 {featuredCategories?.map((category) => (
                     <FeaturedRows
                         key={category._id}
