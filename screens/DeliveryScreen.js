@@ -13,7 +13,7 @@ const DeliveryScreen = () => {
   const restaurant = useSelector(selectRestaurant);
 
   return (
-    <View className="bg-[#00ccbb] flex-1 mt-10">
+    <View className="bg-[#ff0051] flex-1 mt-10">
       <SafeAreaView className="z-50">
         <View className="flex-row justify-between items-center p-5">
           <TouchableOpacity onPress={() => navigation.navigate("Login")}>
@@ -34,7 +34,7 @@ const DeliveryScreen = () => {
               }}
               className="h-60 w-60"/>
 
-          <Progress.Bar size={30} color="#00ccbb" indeterminate={true}></Progress.Bar>
+          <Progress.Bar size={30} color="#ff0051" indeterminate={true}></Progress.Bar>
           </View>
           
           <Text className="mt-3 text-gray-500">Tu orden en {restaurant.title} esta siendo enviada</Text>

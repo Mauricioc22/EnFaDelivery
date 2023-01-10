@@ -75,14 +75,14 @@ const HomeScreen = () => {
 
             {/*Search*/}
             <View className="flex-row items-center space-x-2 pb-2 mx-4 px-2" >
-                <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3" >
+                {/* <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3" >
                     <MagnifyingGlassIcon color="#4B4B4B" size={20} />
                     <TextInput onChangeText={text=> {}} placeholder="Restaurantes o platillos"
                         keyboardType='default'
                     />
 
-                </View>
-                <AdjustmentsVerticalIcon color="#ff0051" />
+                </View> */}
+                {/* <AdjustmentsVerticalIcon color="#ff0051" /> */}
             </View>
 
             {/* {body} */}
@@ -92,8 +92,8 @@ const HomeScreen = () => {
                     paddingBottom: 100,
                 }}
             >
-                {/* {categorias} */}
-                <Categories />
+                {/* {categorias} barra superior */}
+                {/* <Categories /> */}
 
                 {/* {Reatured rows} */}
                 {featuredCategories?.map((category) => (

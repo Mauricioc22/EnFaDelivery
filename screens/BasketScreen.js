@@ -30,7 +30,7 @@ const BasketScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="flex-1 bg-gray-100">
-        <View className="p-5 border-b border-[#00ccbb] bg-white shadow-xs">
+        <View className="p-5 border-b border-[#ff0051] bg-white shadow-xs">
           <View>
             <Text className="text-lg font-bold text-center">Carro de Compras</Text>
             <Text className="text-center text-gray-400">{restaurant.title}</Text>
@@ -39,7 +39,7 @@ const BasketScreen = () => {
           <TouchableOpacity
             onPress={navigation.goBack}
             className="rounded-full bg-gray-100 absolute top-3 right-5">
-              <XCircleIcon color="#00ccbb" height={50} width={50}/>
+              <XCircleIcon color="#ff0051" height={50} width={50}/>
           </TouchableOpacity>
         </View>
 
@@ -52,7 +52,7 @@ const BasketScreen = () => {
           />
           <Text className="flex-1">Entrega en 50 - 75 minutos</Text>
           <TouchableOpacity>
-            <Text className="text-[#00ccbb]">Cambiar</Text>
+            {/* <Text className="text-[#ff0051]">Cambiar</Text> */}
           </TouchableOpacity>
         </View>
 
@@ -61,7 +61,7 @@ const BasketScreen = () => {
             <View 
               key={key}
               className="flex-row items-center space-x-3 bg-white py-2 px-5">
-              <Text className="font-bold text-[#00ccbb]">{items.length} x</Text>
+              <Text className="font-bold text-[#ff0051]">{items.length} x</Text>
               <Image
                 source={{uri: urlFor(items[0]?.image).url() }}
                 className="h-20 w-20 rounded-full"
@@ -71,9 +71,9 @@ const BasketScreen = () => {
 
               <TouchableOpacity>
                 <Text
-                  className="text-[#00ccbb] text-xs"
+                  className="text-[#ff0051] text-xs"
                   onPress={() => dispatch(removeFromBasket({ id: key}))}>
-                Remove
+                Remover
                 </Text>
               </TouchableOpacity>
             </View>
@@ -97,9 +97,9 @@ const BasketScreen = () => {
           </View>
 
           <TouchableOpacity 
-            className="rounded-lg bg-[#00ccbb] p-4"
+            className="rounded-lg bg-[#ff0051] p-4"
             onPress={() => navigation.navigate("PreparingOrder")}>
-            <Text className="text-center text-white text-lg font-bold">Lugar de Entrega</Text>
+            <Text className="text-center text-white text-lg font-bold">Hacer pedido</Text>
           </TouchableOpacity>
         </View>
       </View>

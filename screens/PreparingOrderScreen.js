@@ -26,12 +26,12 @@ const PreparingOrderScreen = () => {
         <Animatable.Text
             animation="slideInUp"
             iterationCount={1}
-            className="text-lg my-10 font-bold text-center text-[#00ccbb]"
+            className="text-lg my-10 font-bold text-center text-[#ff0051]"
         >
             Espere un momento por favor...
         </Animatable.Text>
 
-        <Progress.Bar size={60} indeterminate={true} color="#00ccbb"/>
+        <Progress.Bar size={60} indeterminate={true} color="#ff0051"/>
         </SafeAreaView>
     )
 }

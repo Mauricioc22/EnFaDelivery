@@ -90,13 +90,13 @@ const RestaurantScreen = () => {
                     <Text className="text-gray-500 mt-2 pb-4">{short_description}</Text>
                 </View>
 
-                <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+                {/* <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
                     <QuestionMarkCircleIcon color="gray" opacity={0.6} size={20}></QuestionMarkCircleIcon>
                     <Text className="pl-2 flex-1 text-md font-bold">
                         Es alergico a alguna comida?
                     </Text>
-                    <ChevronRightIcon color="#00ccbb"></ChevronRightIcon>
-                </TouchableOpacity>
+                    <ChevronRightIcon color="#ff0051"></ChevronRightIcon>
+                </TouchableOpacity> */}
             </View>
             <View className="pb-36">
                 <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
